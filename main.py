@@ -10,8 +10,15 @@ class PlaneWar:
         # 初始化pygame库
         pygame.init()
 
+        # 获得当前电脑屏幕的尺寸
+        screen_width, screen_height = self.get_screen_size()
+       
+        # 根据当前电脑屏幕的尺寸计算窗口的尺寸
+        window_width, window_height = screen_width * (2 / 5), screen_height * (4 / 5)
+
+
         # 创建指定尺寸窗口
-        self.window = pygame.display.set_mode((700, 900))
+        self.window = pygame.display.set_mode((round(window_width), round(window_height)))
 
         # 设置窗口
         self._set_window()
@@ -21,6 +28,20 @@ class PlaneWar:
 
         # 创建一个用于跟踪时间的时钟对象
         self.clock = pygame.time.Clock()
+
+    def get_screen_size(self):
+        """获得当前电脑屏幕的尺寸"""
+        # 创建一个视频显示对象
+        info = pygame.display.Info()
+
+        # 获得当前电脑屏幕高度
+        screen_height = info.current_h
+
+        # 获得当前电脑屏幕宽度
+        screen_weight = info.current_w
+
+        # 返回当前电脑屏幕的宽度及高度
+        return screen_weight, screen_height
 
     def _set_window(self):
         """设置窗口"""
