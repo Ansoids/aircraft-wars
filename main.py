@@ -83,6 +83,57 @@ class PlaneWar:
                     pygame.quit()
                     # 退出程序
                     sys.exit()
+                # 如果某个事件是用户按下了键盘上的某个键
+                elif event.type == pygame.KEYDOWN:
+                    
+                    # 处理键盘按下事件
+                    self._handle_keydown_events(event)
+
+                # 如果某个事件是用户松开了键盘上的某个键
+                elif event.type == pygame.KEYUP:
+
+                    # 处理键盘松开事件
+                    self._handle_keyup_events(event)
+    
+    def _handle_keydown_events(self, event):
+        """处理键盘按下事件"""
+
+        # 如果按下的是上箭头
+        if event.key == pygame.K_UP or event.key == pygame.K_w:
+            # 标记我方飞机向上移动
+            self.my_plane.is_move_up = True
+
+        elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
+            # 标记我方飞机向下移动
+            self.my_plane.is_move_down = True
+
+        elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
+            # 标记我方飞机向左移动
+            self.my_plane.is_move_left = True
+
+        elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+            # 标记我方飞机向右移动
+            self.my_plane.is_move_right = True
+
+    def _handle_keyup_events(self, event):
+        """处理键盘松开事件"""
+        
+        # 如果松开的是上箭头
+        if event.key == pygame.K_UP or event.key == pygame.K_w:
+            # 标记我方飞机不向上移动
+            self.my_plane.is_move_up = False
+        elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
+            # 标记我方飞机不向下移动
+            self.my_plane.is_move_down = False
+
+        elif event.key == pygame.K_LEFT or event.key == pygame.K_a:
+            # 标记我方飞机不向左移动
+            self.my_plane.is_move_left = False
+
+        elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+            # 标记我方飞机不向右移动
+            self.my_plane.is_move_right = False
+
 
 if __name__ == '__main__':
 
