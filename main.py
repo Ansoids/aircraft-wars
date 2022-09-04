@@ -2,7 +2,6 @@ import sys
 import pygame
 from bullet import Bullet
 from my_plane import MyPlane
-from bullet import Bullet
 
 # 在水平方向上， 窗口尺寸占电脑屏幕尺寸的比例
 SCALE_HORIZONTAL = 2 / 5
@@ -153,7 +152,7 @@ class PlaneWar:
                     bullet = Bullet(self.window, self.my_plane)
                     # 将创建的子弹添加到子弹列表中
                     self.bullet_list.append(bullet)
-    
+                    
     def _handle_keydown_events(self, event):
         """处理键盘按下事件"""
 
