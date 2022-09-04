@@ -6,6 +6,9 @@ class MyPlane:
 
     def __init__(self, window) -> None:
         """初始化我方飞机"""
+        
+        # 我方飞机每次移动时的偏移量
+        self.offset = 20
 
         # 获得窗口对象
         self.window = window
@@ -34,18 +37,18 @@ class MyPlane:
     def update(self):
         """更新我方飞机位置"""
 
-        if self.is_move_up and self.rect.top - 20 > 0:           
+        if self.is_move_up and self.rect.top - self.offset > 0:           
             # 减少我方飞机的矩形的属性top以向上移动
-            self.rect.top -= 20 
-        if self.is_move_down and self.rect.bottom + 20 < self.window_rect.height:         
+            self.rect.top -= self.offset 
+        if self.is_move_down and self.rect.bottom + self.offset < self.window_rect.height:         
             # 增大我方飞机的矩形的属性bottom以向下移动
-            self.rect.bottom += 20
-        if self.is_move_left and self.rect.left - 20 > 0:          
+            self.rect.bottom += self.offset
+        if self.is_move_left and self.rect.left - self.offset > 0:          
             # 减少我方飞机的矩形的属性left以向左移动
-            self.rect.left -= 20
-        if self.is_move_right and self.rect.right + 20 < self.window_rect.width:           
+            self.rect.left -= self.offset
+        if self.is_move_right and self.rect.right + self.offset < self.window_rect.width:           
             # 增大我方飞机的矩形的属性right以向右移动
-            self.rect.right += 20
+            self.rect.right += self.offset
        
     def draw(self):
         """在窗口中绘制我方飞机"""

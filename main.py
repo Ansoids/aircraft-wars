@@ -2,6 +2,12 @@ import sys
 import pygame
 from my_plane import MyPlane
 
+# 在水平方向上， 窗口尺寸占电脑屏幕尺寸的比例
+SCALE_HORIZONTAL = 2 / 5
+# # 在竖直方向上， 窗口尺寸占电脑屏幕尺寸的比例
+SCALE_VERTICAL = 4 / 5
+# 动画的最大帧率
+MAX_FRAMERATE = 30
 
 class PlaneWar:
     """管理游戏的总体类"""
@@ -14,7 +20,7 @@ class PlaneWar:
         screen_width, screen_height = self.get_screen_size()
        
         # 根据当前电脑屏幕的尺寸计算窗口的尺寸
-        window_width, window_height = screen_width * (2 / 5), screen_height * (4 / 5)
+        window_width, window_height = screen_width * SCALE_HORIZONTAL, screen_height * SCALE_VERTICAL
 
 
         # 创建指定尺寸窗口
@@ -73,7 +79,7 @@ class PlaneWar:
             self.my_plane.update()
 
             # 设置while循环体在一秒内执行的次数（设置动画的最大帧率）
-            self.clock.tick(30)
+            self.clock.tick(MAX_FRAMERATE)
     
     def _handle_events(self):
         for event in pygame.event.get():
@@ -117,7 +123,7 @@ class PlaneWar:
 
     def _handle_keyup_events(self, event):
         """处理键盘松开事件"""
-        
+
         # 如果松开的是上箭头
         if event.key == pygame.K_UP or event.key == pygame.K_w:
             # 标记我方飞机不向上移动
