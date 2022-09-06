@@ -1,14 +1,17 @@
 """中型敌机"""
 from random import randint
-
-
 import pygame
+from pygame.sprite import Sprite
 
-class MidEnemy:
+
+class MidEnemy(Sprite):
     """中型敌机类"""
 
     def __init__(self, window) -> None:
         """初始化中型敌机"""
+
+        # 调用父类sprite的特殊方法__init__()
+        super().__init__()
 
         # 获得窗口对象
         self.window = window

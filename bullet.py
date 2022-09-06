@@ -1,11 +1,16 @@
 """子弹"""
 import pygame
+from pygame.sprite import Sprite
 
-class Bullet:
+
+class Bullet(Sprite):
     """子弹类"""
 
     def __init__(self, window, my_plane) -> None:
         """初始化子弹"""
+
+        # 调用父类sprite的特殊方法__init__()
+        super().__init__()
 
         # 获得窗口对象
         self.window = window

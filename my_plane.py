@@ -1,11 +1,16 @@
 """我方飞机"""
 import pygame
+from pygame.sprite import Sprite
 
-class MyPlane:
+
+class MyPlane(Sprite):
     """我方飞机类"""
 
     def __init__(self, window) -> None:
         """初始化我方飞机"""
+
+        # 调用父类sprite的特殊方法__init__()
+        super().__init__()
         
         # 我方飞机每次移动时的偏移量
         self.offset = 20
