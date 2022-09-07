@@ -23,7 +23,7 @@ class PlaneWar:
         # 设置窗口
         self._set_window()
 
-        # 创建一架我方飞机
+        # 创建我方第一架飞机
         self.my_plane = MyPlane(self.window)
 
         # 创建管理画面精灵的分组
@@ -66,7 +66,7 @@ class PlaneWar:
         pygame.display.set_caption("飞机大战")
 
         # 加载窗口图标
-        window_icon = pygame.image.load("images/my_plane.png")
+        window_icon = pygame.image.load("images/my_plane1.png")
 
         # 设置窗口的图标
         pygame.display.set_icon(window_icon)
@@ -123,6 +123,9 @@ class PlaneWar:
 
             # 删除窗口中所有不可见的元素
             self._delete_invisable_elements()
+
+            # 切换我方飞机的图片
+            self.my_plane.switch_image()
 
             # 设置while循环体在一秒内执行的次数（设置动画的最大帧率）
             self.clock.tick(constans.MAX_FRAMERATE)
